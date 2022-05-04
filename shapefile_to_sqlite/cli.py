@@ -66,6 +66,9 @@ def validate_crs(ctx, param, value):
     help="Show extra information, including the CRS details",
     is_flag=True,
 )
+@click.option(
+    "--prefix-pk", help="Prefix the primary keys with the filename", is_flag=True
+)
 def cli(
     db_path,
     shapefile,
@@ -113,6 +116,7 @@ def cli(
                     spatialite=spatialite,
                     spatialite_mod=spatialite_mod,
                     spatial_index=spatial_index,
+                    pk_prefix=f"{filepath}:" if prefix_pk else None,
                 )
                 num_added = db_table.count
                 if verbose:
