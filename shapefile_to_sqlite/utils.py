@@ -38,6 +38,7 @@ def import_features(
     spatialite=False,
     spatialite_mod=None,
     spatial_index=False,
+    pk_prefix=None,
 ):
     db = sqlite_utils.Database(db_path)
     # We need to convert from shapefile_crs to target_crs
@@ -58,6 +59,8 @@ def import_features(
 
     def yield_features():
         for feature in features:
+            if pk_prefix:
+                feature["id"] = pk_prefix + feature["id"]
             if isinstance(feature["id"], str) and feature["id"].isdigit():
                 feature["id"] = int(feature["id"])
             feature.pop("type")
