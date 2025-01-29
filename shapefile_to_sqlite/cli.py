@@ -80,6 +80,7 @@ def cli(
     spatial_index,
     spatialite_mod,
     verbose,
+    prefix_pk,
 ):
     "Load shapefiles into a SQLite (optionally SpatiaLite) database"
     if verbose and crs:
