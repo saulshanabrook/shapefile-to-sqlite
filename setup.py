@@ -1,7 +1,7 @@
 from setuptools import setup
 import os
 
-VERSION = "0.4.1"
+VERSION = "0.4.2"
 
 
 def get_long_description():
@@ -19,6 +19,11 @@ setup(
     long_description_content_type="text/markdown",
     author="Simon Willison",
     url="https://github.com/simonw/shapefile-to-sqlite",
+    project_urls={
+        "Issues": "https://github.com/simonw/shapefile-to-sqlite/issues",
+        "CI": "https://github.com/simonw/shapefile-to-sqlite/actions",
+        "Changelog": "https://github.com/simonw/shapefile-to-sqlite/releases",
+    },
     license="Apache License, Version 2.0",
     version=VERSION,
     packages=["shapefile_to_sqlite"],
